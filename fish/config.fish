@@ -44,14 +44,14 @@ set -gx PATH $BUN_INSTALL/bin $PATH
 
 # opencode
 function opencode
-    bun run --conditions=development /home/tyrellshawn/agents/opencode/packages/opencode/src/index.ts $argv
+    bun run --conditions=development /home/$USER/agents/opencode/packages/opencode/src/index.ts $argv
 end
 
 # Alias 'claude' for 'opencode'
 abbr -a claude opencode
 
 # pnpm
-set -gx PNPM_HOME "/home/tyrellshawn/.local/share/pnpm"
+set -gx PNPM_HOME "/home/$USER/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
@@ -69,7 +69,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 function bmad
     # Run bmad from any directory
-    bun run /home/tyrellshawn/Github/BMAD-METHOD/tools/cli.js build -a $argv
+    bun run /home/$USER/Github/BMAD-METHOD/tools/cli.js build -a $argv
 end
 
 function bmad-init
